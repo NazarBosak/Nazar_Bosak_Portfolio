@@ -193,29 +193,16 @@
             overflow-y: auto;
         }
 
-        /* Desktop: show on hover */
-        .lang-switcher:hover .lang-dropdown {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        /* Show when .show class is added (for click toggle) */
+        /* Show when .show class is added (click toggle) - takes priority */
         .lang-dropdown.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
         }
 
-        /* Mobile: disable hover, use only click */
-        @media (max-width: 768px) {
+        /* Desktop only: show on hover */
+        @media (hover: hover) and (pointer: fine) {
             .lang-switcher:hover .lang-dropdown {
-                opacity: 0;
-                visibility: hidden;
-                transform: translateY(-10px);
-            }
-            
-            .lang-dropdown.show {
                 opacity: 1;
                 visibility: visible;
                 transform: translateY(0);
@@ -2501,16 +2488,34 @@
 
         // Language switcher toggle
         function toggleLangDropdown(e) {
-            if (e) e.stopPropagation();
-            document.getElementById('langDropdown').classList.toggle('show');
+            if (e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+            const dropdown = document.getElementById('langDropdown');
+            dropdown.classList.toggle('show');
         }
 
         // Close dropdown when clicking outside
         document.addEventListener('click', function(e) {
-            if (!e.target.closest('.lang-switcher')) {
-                document.getElementById('langDropdown').classList.remove('show');
+            const dropdown = document.getElementById('langDropdown');
+            const switcher = document.querySelector('.lang-switcher');
+            
+            // Если клик был вне переключателя языков - закрыть
+            if (switcher && !switcher.contains(e.target)) {
+                dropdown.classList.remove('show');
             }
         });
+        
+        // Также закрывать при касании вне меню (для мобильных)
+        document.addEventListener('touchstart', function(e) {
+            const dropdown = document.getElementById('langDropdown');
+            const switcher = document.querySelector('.lang-switcher');
+            
+            if (switcher && !switcher.contains(e.target) && dropdown.classList.contains('show')) {
+                dropdown.classList.remove('show');
+            }
+        }, { passive: true });
 
         // Language selection
         document.querySelectorAll('.lang-option').forEach(option => {
