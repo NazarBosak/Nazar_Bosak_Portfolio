@@ -1,0 +1,2582 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nazar Bosak | Portfolio</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366f1'/%3E%3Cstop offset='50%25' stop-color='%238b5cf6'/%3E%3Cstop offset='100%25' stop-color='%23d946ef'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='42' font-weight='bold' fill='white' text-anchor='middle'%3ENB%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0f;
+            --bg-secondary: #12121a;
+            --bg-card: #1a1a24;
+            --accent: #6366f1;
+            --accent-light: #818cf8;
+            --accent-glow: rgba(99, 102, 241, 0.3);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --border: rgba(255, 255, 255, 0.08);
+            --gradient-1: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+            --gradient-2: linear-gradient(135deg, #0ea5e9 0%, #6366f1 100%);
+        }
+
+        /* Light Theme */
+        [data-theme="light"] {
+            --bg-primary: #f8fafc;
+            --bg-secondary: #f1f5f9;
+            --bg-card: #ffffff;
+            --accent: #6366f1;
+            --accent-light: #4f46e5;
+            --accent-glow: rgba(99, 102, 241, 0.2);
+            --text-primary: #1e293b;
+            --text-secondary: #475569;
+            --text-muted: #64748b;
+            --border: rgba(0, 0, 0, 0.1);
+        }
+
+        [data-theme="light"] .video-bg video {
+            opacity: 0.35;
+            filter: brightness(1.4) contrast(1.1) saturate(1.2);
+        }
+
+        [data-theme="light"] .video-overlay {
+            background: linear-gradient(
+                to bottom,
+                rgba(248, 250, 252, 0.5) 0%,
+                rgba(248, 250, 252, 0.7) 50%,
+                rgba(248, 250, 252, 0.85) 100%
+            );
+        }
+
+        [data-theme="light"] nav {
+            background: rgba(248, 250, 252, 0.9);
+        }
+
+        [data-theme="light"] nav.scrolled {
+            background: rgba(248, 250, 252, 0.98);
+        }
+
+        [data-theme="light"] .bg-gradient::before {
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(217, 70, 239, 0.03) 0%, transparent 50%);
+        }
+
+        [data-theme="light"] .timeline-content,
+        [data-theme="light"] .skill-category,
+        [data-theme="light"] .education-card,
+        [data-theme="light"] .schedule-day,
+        [data-theme="light"] .contact-info,
+        [data-theme="light"] .contact-form,
+        [data-theme="light"] .floating-card {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .logo-icon {
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        [data-theme="light"] .mobile-toggle span {
+            background: var(--text-primary);
+        }
+
+        [data-theme="light"] .day-card,
+        [data-theme="light"] .availability-card {
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .document-card {
+            background: #f8fafc;
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .document-card:hover {
+            background: rgba(99, 102, 241, 0.08);
+            border-color: var(--accent);
+        }
+
+        [data-theme="light"] .contact-link {
+            background: #f8fafc;
+            border-color: rgba(0, 0, 0, 0.08);
+        }
+
+        [data-theme="light"] .contact-link:hover {
+            background: rgba(99, 102, 241, 0.08);
+            border-color: var(--accent);
+        }
+
+        [data-theme="light"] .language-item {
+            background: #ffffff;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+        }
+
+        [data-theme="light"] .hero-badge {
+            background: rgba(99, 102, 241, 0.15);
+            color: var(--accent);
+        }
+
+        [data-theme="light"] input,
+        [data-theme="light"] textarea {
+            background: #f8fafc;
+            border-color: var(--border);
+            color: var(--text-primary);
+        }
+
+        [data-theme="light"] input:focus,
+        [data-theme="light"] textarea:focus {
+            background: #ffffff;
+            border-color: var(--accent);
+        }
+
+        [data-theme="light"] .skill-tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent);
+        }
+
+        [data-theme="light"] .timeline-date {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent);
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            position: relative;
+            margin-left: 1rem;
+        }
+
+        .lang-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn:hover {
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.1);
+        }
+
+        .lang-btn .flag {
+            font-size: 1.1rem;
+        }
+
+        .lang-dropdown {
+            position: absolute;
+            top: calc(100% + 8px);
+            right: 0;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.5rem;
+            min-width: 180px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .lang-switcher:hover .lang-dropdown,
+        .lang-dropdown.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .lang-option {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.6rem 0.75rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            color: var(--text-secondary);
+        }
+
+        .lang-option:hover {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--text-primary);
+        }
+
+        .lang-option.active {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--accent-light);
+        }
+
+        .lang-option .flag {
+            font-size: 1.2rem;
+        }
+
+        .lang-option .lang-name {
+            font-size: 0.9rem;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Video Background */
+        .video-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .video-bg video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            transform: translate(-50%, -50%);
+            object-fit: cover;
+            opacity: 0.45;
+            filter: brightness(0.55) saturate(1.3);
+        }
+
+        .video-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                to bottom,
+                rgba(10, 10, 15, 0.5) 0%,
+                rgba(10, 10, 15, 0.65) 50%,
+                rgba(10, 10, 15, 0.85) 100%
+            );
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Animated Background */
+        .bg-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .bg-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(ellipse at 20% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, rgba(217, 70, 239, 0.05) 0%, transparent 50%);
+            animation: bgMove 20s ease-in-out infinite;
+        }
+
+        @keyframes bgMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            33% { transform: translate(2%, 2%) rotate(1deg); }
+            66% { transform: translate(-2%, 1%) rotate(-1deg); }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 15, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .nav-divider {
+            width: 1px;
+            height: 24px;
+            background: var(--border);
+            margin: 0 0.5rem;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .theme-toggle:hover {
+            border-color: var(--accent);
+            color: var(--accent-light);
+            transform: scale(1.05);
+        }
+
+        .theme-toggle svg {
+            width: 20px;
+            height: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .theme-toggle .sun-icon { display: none; }
+        .theme-toggle .moon-icon { display: block; }
+
+        [data-theme="light"] .theme-toggle .sun-icon { display: block; }
+        [data-theme="light"] .theme-toggle .moon-icon { display: none; }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--gradient-1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: white;
+            -webkit-text-fill-color: white;
+            position: relative;
+            overflow: hidden;
+            animation: logoGlow 3s ease-in-out infinite;
+        }
+
+        .logo-icon::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                45deg,
+                transparent 30%,
+                rgba(255,255,255,0.3) 50%,
+                transparent 70%
+            );
+            animation: logoShine 3s ease-in-out infinite;
+        }
+
+        @keyframes logoGlow {
+            0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
+            50% { box-shadow: 0 0 30px var(--accent-glow), 0 0 40px rgba(139, 92, 246, 0.2); }
+        }
+
+        @keyframes logoShine {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            50%, 100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links li {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.3);
+            border-radius: 50px;
+            font-size: 0.875rem;
+            color: var(--accent-light);
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: #22c55e;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero h1 span {
+            display: inline;
+        }
+
+        .hero h1 .name-highlight {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.125rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            max-width: 500px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.75rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 4px 20px var(--accent-glow);
+            min-width: 160px;
+            justify-content: center;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px var(--accent-glow);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card);
+            border-color: var(--accent);
+        }
+
+        /* Hero Image */
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeInUp 1s ease 0.3s forwards;
+            opacity: 0;
+        }
+
+        .image-wrapper {
+            position: relative;
+            width: 420px;
+            height: 420px;
+            margin-left: 60px;
+        }
+
+        .image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: var(--gradient-1);
+            border-radius: 50%;
+            z-index: -1;
+            animation: rotate 8s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .image-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--bg-primary);
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center top;
+            border: 4px solid var(--bg-primary);
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        .image-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* First image - always visible as base */
+        .profile-image:nth-child(1) {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        /* Second and third images crossfade over first */
+        .profile-image:nth-child(2) {
+            opacity: 0;
+            z-index: 2;
+            animation: crossfade2 18s infinite;
+        }
+
+        .profile-image:nth-child(3) {
+            opacity: 0;
+            z-index: 3;
+            animation: crossfade3 18s infinite;
+        }
+
+        @keyframes crossfade2 {
+            0%, 27% { opacity: 0; }
+            33%, 60% { opacity: 1; }
+            66%, 100% { opacity: 0; }
+        }
+
+        @keyframes crossfade3 {
+            0%, 60% { opacity: 0; }
+            66%, 93% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        .floating-card {
+            position: absolute;
+            background: rgba(26, 26, 36, 0.95);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.875rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            animation: float 4s ease-in-out infinite;
+            white-space: nowrap;
+            z-index: 10;
+            backdrop-filter: blur(10px);
+        }
+
+        .floating-card.card-1 {
+            top: 5%;
+            right: -15px;
+            animation-delay: 0s;
+        }
+
+        .floating-card.card-2 {
+            bottom: 20%;
+            left: -25px;
+            animation-delay: 1s;
+        }
+
+        .floating-card.card-3 {
+            bottom: 3%;
+            right: 10px;
+            animation-delay: 2s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-card svg {
+            width: 18px;
+            height: 18px;
+            color: var(--accent);
+        }
+
+        /* Sections */
+        section {
+            padding: 6rem 2rem;
+        }
+
+        .section-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(2rem, 4vw, 2.75rem);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* About Section */
+        #about {
+            background: var(--bg-secondary);
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--accent-light);
+        }
+
+        .about-text p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.1);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+        }
+
+        .timeline-item {
+            position: relative;
+            width: 50%;
+            padding: 0 3rem 3rem;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            width: 16px;
+            height: 16px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        .timeline-item:nth-child(odd)::before {
+            right: -8px;
+        }
+
+        .timeline-item:nth-child(even)::before {
+            left: -8px;
+        }
+
+        .timeline-content {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .timeline-date {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent-light);
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-content h3 {
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-content h4 {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-bottom: 0.75rem;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .timeline-content li {
+            margin-bottom: 0.5rem;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content li {
+            padding-left: 0;
+            padding-right: 1rem;
+        }
+
+        .timeline-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+        }
+
+        .timeline-item:nth-child(odd) .timeline-content li::before {
+            left: auto;
+            right: 0;
+            content: '←';
+        }
+
+        /* Skills Section */
+        #skills {
+            background: var(--bg-secondary);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .skill-category:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .skill-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category h3 svg {
+            width: 24px;
+            height: 24px;
+            color: var(--accent);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            padding: 0.5rem 1rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+            border-radius: 8px;
+            font-size: 0.875rem;
+            color: var(--text-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: rgba(99, 102, 241, 0.2);
+            color: var(--text-primary);
+        }
+
+        /* Languages */
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .language-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .language-item:hover {
+            border-color: var(--accent);
+            transform: scale(1.05);
+        }
+
+        .language-flag {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .language-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .language-level {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Education Section */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-1);
+        }
+
+        .education-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .education-year {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: rgba(99, 102, 241, 0.1);
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: var(--accent-light);
+            margin-bottom: 1rem;
+        }
+
+        .education-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card h4 {
+            font-size: 1rem;
+            color: var(--accent-light);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
+        /* Availability Section */
+        #availability {
+            background: var(--bg-secondary);
+        }
+
+        .availability-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 3rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .schedule-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+        }
+
+        .day-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem 0.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .day-card:hover {
+            border-color: var(--accent);
+        }
+
+        .day-card.weekend {
+            background: rgba(34, 197, 94, 0.1);
+            border-color: rgba(34, 197, 94, 0.3);
+        }
+
+        .day-name {
+            font-weight: 600;
+            font-size: 0.875rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .day-time {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .day-card.weekend .day-time {
+            color: #22c55e;
+        }
+
+        .availability-note {
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            position: relative;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2.5rem;
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-primary);
+        }
+
+        .contact-info > p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            border-color: var(--accent);
+            background: rgba(99, 102, 241, 0.1);
+            transform: translateX(5px);
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.15);
+        }
+
+        .contact-link svg {
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            color: var(--accent);
+        }
+
+        .contact-link div {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+        }
+
+        .contact-link strong {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .contact-link span {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* Contact Form */
+        .contact-form {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 24px;
+            padding: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+            box-shadow: 0 0 0 3px var(--accent-glow);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .form-submit {
+            width: 100%;
+        }
+
+        /* Documents Section */
+        .documents-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .document-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            transition: all 0.3s ease;
+        }
+
+        .document-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+            background: rgba(99, 102, 241, 0.05);
+        }
+
+        .document-icon {
+            width: 48px;
+            height: 48px;
+            min-width: 48px;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.2), rgba(139, 92, 246, 0.15));
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .document-icon svg {
+            width: 22px;
+            height: 22px;
+            color: var(--accent);
+        }
+
+        .document-info h4 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+            color: var(--text-primary);
+        }
+
+        .document-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin: 0;
+        }
+
+        .document-info p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Scroll Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-content {
+                order: 2;
+            }
+
+            .hero-image {
+                order: 1;
+            }
+
+            .image-wrapper {
+                width: 350px;
+                height: 350px;
+                margin-left: 0;
+            }
+
+            .hero-description {
+                margin: 0 auto 2rem;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 2rem;
+                padding-right: 0;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd),
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
+            .timeline-item::before {
+                left: -8px !important;
+                right: auto !important;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content li {
+                padding-left: 1rem;
+                padding-right: 0;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-content li::before {
+                left: 0;
+                right: auto;
+                content: '→';
+            }
+
+            .timeline-item:nth-child(odd) {
+                text-align: left;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--bg-card);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 0;
+                border-top: 1px solid var(--border);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li a {
+                padding: 1rem;
+                display: block;
+                border-radius: 8px;
+            }
+
+            .nav-links li a:hover {
+                background: rgba(99, 102, 241, 0.1);
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .nav-right {
+                gap: 0.5rem;
+            }
+
+            .nav-divider {
+                display: none;
+            }
+
+            .theme-toggle {
+                width: 36px;
+                height: 36px;
+            }
+
+            .schedule-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .lang-switcher {
+                margin-left: 0.5rem;
+            }
+
+            .lang-btn {
+                padding: 0.4rem 0.5rem;
+                font-size: 0.8rem;
+            }
+
+            #currentLang {
+                display: none;
+            }
+
+            .lang-dropdown {
+                right: -10px;
+                min-width: 150px;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .section-header h2 {
+                font-size: 2rem;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .languages-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.75rem;
+            }
+
+            .language-item {
+                padding: 1rem;
+            }
+
+            .language-flag {
+                font-size: 1.5rem;
+            }
+
+            .documents-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            .floating-card {
+                display: none;
+            }
+
+            section {
+                padding: 4rem 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .schedule-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .image-wrapper {
+                width: 220px;
+                height: 220px;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .section-header h2 {
+                font-size: 1.75rem;
+            }
+
+            .languages-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .btn {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.9rem;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-container {
+                padding: 0 1rem;
+            }
+
+            .logo {
+                font-size: 1rem;
+            }
+
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Background - замени video.mp4 на своё видео -->
+    <div class="video-bg">
+        <video autoplay muted loop playsinline>
+            <source src="assets/video/video.mp4" type="video/mp4">
+        </video>
+    </div>
+    <div class="video-overlay"></div>
+    
+    <div class="bg-gradient"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo"><div class="logo-icon">NB</div>Nazar Bosak</a>
+            <ul class="nav-links">
+                <li><a href="#about" data-i18n="nav.about">Om mig</a></li>
+                <li><a href="#experience" data-i18n="nav.experience">Erfarenhet</a></li>
+                <li><a href="#skills" data-i18n="nav.skills">Kompetens</a></li>
+                <li><a href="#education" data-i18n="nav.education">Utbildning</a></li>
+                <li><a href="#availability" data-i18n="nav.availability">Tillgänglighet</a></li>
+                <li><a href="#contact" data-i18n="nav.contact">Kontakt</a></li>
+            </ul>
+            
+            <div class="nav-right">
+                <!-- Theme Toggle -->
+                <button class="theme-toggle" id="themeToggle" title="Byt tema">
+                    <svg class="moon-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                    <svg class="sun-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+                </button>
+                
+                <div class="nav-divider"></div>
+                
+                <!-- Language Switcher -->
+                <div class="lang-switcher">
+                    <button class="lang-btn" onclick="toggleLangDropdown(event)">
+                        <span class="flag" id="currentFlag">🇸🇪</span>
+                        <span id="currentLang">SV</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                    </button>
+                    <div class="lang-dropdown" id="langDropdown">
+                        <div class="lang-option active" data-lang="sv" data-code="SV">
+                            <span class="flag">🇸🇪</span>
+                            <span class="lang-name">Svenska</span>
+                        </div>
+                        <div class="lang-option" data-lang="en" data-code="EN">
+                            <span class="flag">🇬🇧</span>
+                            <span class="lang-name">English</span>
+                        </div>
+                        <div class="lang-option" data-lang="uk" data-code="UK">
+                            <span class="flag">🇺🇦</span>
+                            <span class="lang-name">Українська</span>
+                        </div>
+                        <div class="lang-option" data-lang="ru" data-code="RU">
+                            <span class="flag">🇷🇺</span>
+                            <span class="lang-name">Русский</span>
+                        </div>
+                        <div class="lang-option" data-lang="ar" data-code="AR">
+                            <span class="flag">🇸🇦</span>
+                            <span class="lang-name">العربية</span>
+                        </div>
+                        <div class="lang-option" data-lang="fr" data-code="FR">
+                            <span class="flag">🇫🇷</span>
+                            <span class="lang-name">Français</span>
+                        </div>
+                        <div class="lang-option" data-lang="de" data-code="DE">
+                            <span class="flag">🇩🇪</span>
+                            <span class="lang-name">Deutsch</span>
+                        </div>
+                        <div class="lang-option" data-lang="it" data-code="IT">
+                            <span class="flag">🇮🇹</span>
+                            <span class="lang-name">Italiano</span>
+                        </div>
+                        <div class="lang-option" data-lang="fi" data-code="FI">
+                            <span class="flag">🇫🇮</span>
+                            <span class="lang-name">Suomi</span>
+                        </div>
+                        <div class="lang-option" data-lang="es" data-code="ES">
+                            <span class="flag">🇪🇸</span>
+                            <span class="lang-name">Español</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mobile-toggle" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge" data-i18n="hero.badge">Tillgänglig för arbete</div>
+                <h1><span data-i18n="hero.greeting">Hej, jag är</span><br><span class="name-highlight">Nazar Bosak</span></h1>
+                <p class="hero-description" data-i18n="hero.description">
+                    En driven och ansvarsfull ung person med erfarenhet inom service, 
+                    kundbemötande och teamarbete. Kombinerar studier med arbete och 
+                    söker alltid nya möjligheter att utvecklas.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#contact" class="btn btn-primary" id="heroBtnContact">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                        <span data-i18n="hero.btnContact">Kontakta mig</span>
+                    </a>
+                    <a href="#experience" class="btn btn-secondary" data-i18n="hero.btnExperience">
+                        Se min erfarenhet
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-wrapper">
+                    <div class="image-container">
+                        <img src="assets/images/photo.jpg" alt="Nazar Bosak" class="profile-image">
+                        <img src="assets/images/photo1.jpg" alt="Nazar Bosak" class="profile-image">
+                        <img src="assets/images/photo2.jpg" alt="Nazar Bosak" class="profile-image">
+                    </div>
+                    <div class="floating-card card-1">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <span data-i18n="cards.exp">5+ års erfarenhet</span>
+                    </div>
+                    <div class="floating-card card-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+                        <span data-i18n="cards.lang">5 språk</span>
+                    </div>
+                    <div class="floating-card card-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                        <span data-i18n="cards.service">Service-fokus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <h2 data-i18n="about.title">Om mig</h2>
+                <p data-i18n="about.subtitle">Driven gymnasieelev med bred arbetslivserfarenhet</p>
+            </div>
+            <div class="about-grid">
+                <div class="about-text reveal">
+                    <h3 data-i18n="about.storyTitle">Min berättelse</h3>
+                    <p data-i18n="about.story1">
+                        Jag har lett barn genom komplexa aktiviteter, arbetat intensiva 
+                        sommarpass under press och vuxit från assistent till ansvarig på 
+                        familjeföretaget. Min erfarenhet visar att jag kan hantera flera 
+                        uppgifter samtidigt utan att tappa fokus på kvalitet.
+                    </p>
+                    <p data-i18n="about.story2">
+                        Oavsett om det handlar om att skapa glädje för barn eller leverera 
+                        professionell service till vuxna, ser jag varje utmaning som en 
+                        möjlighet att utvecklas och bidra till något meningsfullt.
+                    </p>
+                    <p data-i18n="about.story3">
+                        Min bakgrund inom både teknisk utbildning och praktiskt arbete ger 
+                        mig en unik kombination av teoretisk kunskap och hands-on erfarenhet. 
+                        Jag är målmedveten, ansvarstagande och trivs både i team och som 
+                        individuell bidragare.
+                    </p>
+                </div>
+                <div class="stats-grid reveal">
+                    <div class="stat-item">
+                        <div class="stat-number">5+</div>
+                        <div class="stat-label" data-i18n="stats.experience">År erfarenhet</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label" data-i18n="stats.languages">Språk</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">90%</div>
+                        <div class="stat-label" data-i18n="stats.conversion">Konverteringsgrad</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label" data-i18n="stats.guests">Gäster per skift</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10h</div>
+                        <div class="stat-label" data-i18n="stats.shifts">Arbetspass</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">4-15</div>
+                        <div class="stat-label" data-i18n="stats.ageGroups">Åldersgrupper</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <h2 data-i18n="exp.title">Arbetslivserfarenhet</h2>
+                <p data-i18n="exp.subtitle">Min resa genom olika branscher och roller</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date" data-i18n="exp.job1.date">Aug 2025 – Pågående</span>
+                        <h3 data-i18n="exp.job1.title">Kök & Servicemedarbetare</h3>
+                        <h4>Berga Sushi, Stockholm</h4>
+                        <ul>
+                            <li data-i18n="exp.job1.task1">Hanterar både varma och kalla köksstationer i högt arbetstempo</li>
+                            <li data-i18n="exp.job1.task2">Ansvarar för kassaarbete och kundservice på svenska och engelska</li>
+                            <li data-i18n="exp.job1.task3">Tillagar sushi och japanska rätter med precision under rusningstid</li>
+                            <li data-i18n="exp.job1.task4">Flexibel rotation mellan kök, kassa och disk</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date">Apr 2024 – Aug 2024</span>
+                        <h3 data-i18n="exp.job2.title">Byggarbetare</h3>
+                        <h4 data-i18n="exp.job2.company">Privat byggprojekt, Stockholm</h4>
+                        <ul>
+                            <li data-i18n="exp.job2.task1">Genomförde betongläggning, målning och materialhantering i 10-timmarspass</li>
+                            <li data-i18n="exp.job2.task2">Ansvarade för inköpsresor och koordinering av byggmaterial</li>
+                            <li data-i18n="exp.job2.task3">Slutförde projekt enligt tidplan trots krävande väderförhållanden</li>
+                            <li data-i18n="exp.job2.task4">Utvecklade stark teamkänsla i arbetsgrupper om 2-3 personer</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2022 – 2023</span>
+                        <h3 data-i18n="exp.job3.title">Servitör</h3>
+                        <h4>Restaurang Zavedenie, Dnipro</h4>
+                        <ul>
+                            <li data-i18n="exp.job3.task1">Serverade upp till 50 gäster per skift under intensiva perioder</li>
+                            <li data-i18n="exp.job3.task2">Hanterade hela kedjan från beställning till leverans med precision</li>
+                            <li data-i18n="exp.job3.task3">Bibehöll hög servicekvalitet under högtrycksituationer</li>
+                            <li data-i18n="exp.job3.task4">Bidrog till restaurangens positiva rykte genom personlig service</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date">2019 – 2022</span>
+                        <h3 data-i18n="exp.job4.title">Instruktör & Animator</h3>
+                        <h4 data-i18n="exp.job4.company">Cosmostrike (Familjeföretag), Dnipro</h4>
+                        <ul>
+                            <li data-i18n="exp.job4.task1">Ledde aktiviteter för barn och ungdomar i åldern 4-15 år</li>
+                            <li data-i18n="exp.job4.task2">Utvecklade pedagogiska metoder för komplexa spelregler</li>
+                            <li data-i18n="exp.job4.task3">Skapade trygg och inkluderande miljö med höga kundbetyg</li>
+                            <li data-i18n="exp.job4.task4">Växte från assistent till huvudansvarig för barnaktiviteter</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <span class="timeline-date" data-i18n="exp.job5.date">Extra ansvar vid behov</span>
+                        <h3 data-i18n="exp.job5.title">Receptionist</h3>
+                        <h4>Cosmostrike, Dnipro</h4>
+                        <ul>
+                            <li data-i18n="exp.job5.task1">Presenterade företagets tjänster med 90% konverteringsgrad</li>
+                            <li data-i18n="exp.job5.task2">Administrerade bokningssystem och hanterade betalningar felfritt</li>
+                            <li data-i18n="exp.job5.task3">Fungerade som första intryck för familjer vid barnkalas</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <h2 data-i18n="skills.title">Kompetens & Färdigheter</h2>
+                <p data-i18n="skills.subtitle">Tekniska och personliga färdigheter som jag har utvecklat</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category reveal">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        <span data-i18n="skills.technical">Tekniska färdigheter</span>
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-i18n="skills.tech1">Kassasystem</span>
+                        <span class="skill-tag" data-i18n="skills.tech2">Bokningssystem</span>
+                        <span class="skill-tag" data-i18n="skills.tech3">Betalningshantering</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag" data-i18n="skills.tech4">Problemlösning</span>
+                        <span class="skill-tag" data-i18n="skills.tech5">Datahantering</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        <span data-i18n="skills.service">Service & Kundbemötande</span>
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-i18n="skills.serv1">Kundservice</span>
+                        <span class="skill-tag" data-i18n="skills.serv2">Kommunikation</span>
+                        <span class="skill-tag" data-i18n="skills.serv3">Konflikthantering</span>
+                        <span class="skill-tag" data-i18n="skills.serv4">Teamarbete</span>
+                        <span class="skill-tag" data-i18n="skills.serv5">Försäljning</span>
+                        <span class="skill-tag" data-i18n="skills.serv6">Servicekvalitet</span>
+                    </div>
+                </div>
+                <div class="skill-category reveal">
+                    <h3>
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        <span data-i18n="skills.personal">Personliga egenskaper</span>
+                    </h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag" data-i18n="skills.pers1">Ansvarstagande</span>
+                        <span class="skill-tag" data-i18n="skills.pers2">Uthållighet</span>
+                        <span class="skill-tag" data-i18n="skills.pers3">Målmedvetenhet</span>
+                        <span class="skill-tag" data-i18n="skills.pers4">Flexibilitet</span>
+                        <span class="skill-tag" data-i18n="skills.pers5">Punktlighet</span>
+                        <span class="skill-tag" data-i18n="skills.pers6">Självständig</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Languages -->
+            <div class="section-header reveal" style="margin-top: 4rem;">
+                <h2 data-i18n="langs.title">Språkkunskaper</h2>
+                <p data-i18n="langs.subtitle">Flerspråkighet som öppnar dörrar</p>
+            </div>
+            <div class="languages-grid reveal">
+                <div class="language-item">
+                    <div class="language-flag">🇺🇦</div>
+                    <div class="language-name" data-i18n="langs.ukrainian">Ukrainska</div>
+                    <div class="language-level" data-i18n="langs.native">Modersmål</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-flag">🇷🇺</div>
+                    <div class="language-name" data-i18n="langs.russian">Ryska</div>
+                    <div class="language-level" data-i18n="langs.native">Modersmål</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-flag">🇬🇧</div>
+                    <div class="language-name" data-i18n="langs.english">Engelska</div>
+                    <div class="language-level">B2</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-flag">🇸🇪</div>
+                    <div class="language-name" data-i18n="langs.swedish">Svenska</div>
+                    <div class="language-level">B1</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-flag">🇩🇪</div>
+                    <div class="language-name" data-i18n="langs.german">Tyska</div>
+                    <div class="language-level">A1</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <h2 data-i18n="edu.title">Utbildning</h2>
+                <p data-i18n="edu.subtitle">Min akademiska bakgrund</p>
+            </div>
+            <div class="education-grid">
+                <div class="education-card reveal">
+                    <span class="education-year" data-i18n="edu.edu1.date">2025 – Pågående</span>
+                    <h3>Österåkers Gymnasium</h3>
+                    <h4 data-i18n="edu.edu1.program">Teknikprogrammet – Media och Information</h4>
+                    <p>Åkersberga, Sverige</p>
+                </div>
+                <div class="education-card reveal">
+                    <span class="education-year">2022 – 2024</span>
+                    <h3>Söraskolan</h3>
+                    <h4 data-i18n="edu.edu2.program">Grundskola</h4>
+                    <p data-i18n="edu.edu2.desc">Åkersberga, Sverige – Godkända nationella prov i svenska</p>
+                </div>
+                <div class="education-card reveal">
+                    <span class="education-year">2013 – 2022</span>
+                    <h3>Skola nr. 6</h3>
+                    <h4 data-i18n="edu.edu3.program">Fullständig grundutbildning</h4>
+                    <p>Dnipro, Ukraina</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Availability Section -->
+    <section id="availability">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <h2 data-i18n="avail.title">Tillgänglighet</h2>
+                <p data-i18n="avail.subtitle">När jag är tillgänglig för arbete</p>
+            </div>
+            <div class="availability-card reveal">
+                <div class="schedule-grid">
+                    <div class="day-card">
+                        <div class="day-name" data-i18n="days.mon">Mån</div>
+                        <div class="day-time"><span data-i18n="avail.from">Från</span> 15:30</div>
+                    </div>
+                    <div class="day-card">
+                        <div class="day-name" data-i18n="days.tue">Tis</div>
+                        <div class="day-time"><span data-i18n="avail.from">Från</span> 17:00</div>
+                    </div>
+                    <div class="day-card">
+                        <div class="day-name" data-i18n="days.wed">Ons</div>
+                        <div class="day-time"><span data-i18n="avail.from">Från</span> 17:00</div>
+                    </div>
+                    <div class="day-card">
+                        <div class="day-name" data-i18n="days.thu">Tor</div>
+                        <div class="day-time"><span data-i18n="avail.from">Från</span> 17:00</div>
+                    </div>
+                    <div class="day-card">
+                        <div class="day-name" data-i18n="days.fri">Fre</div>
+                        <div class="day-time"><span data-i18n="avail.from">Från</span> 15:30</div>
+                    </div>
+                    <div class="day-card weekend">
+                        <div class="day-name" data-i18n="days.sat">Lör</div>
+                        <div class="day-time" data-i18n="avail.allDay">Hela dagen</div>
+                    </div>
+                    <div class="day-card weekend">
+                        <div class="day-name" data-i18n="days.sun">Sön</div>
+                        <div class="day-time" data-i18n="avail.allDay">Hela dagen</div>
+                    </div>
+                </div>
+                <p class="availability-note">
+                    📍 <span data-i18n="avail.note1">Vardagar tillgänglig efter skolan • Helger helt flexibla</span><br>
+                    <em data-i18n="avail.note2">Schema kan justeras vid behov – kontakta mig gärna!</em>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="section-container">
+            <div class="section-header reveal">
+                <h2 data-i18n="contact.title">Kontakta mig</h2>
+                <p data-i18n="contact.subtitle">Låt oss prata om möjligheter</p>
+            </div>
+            <div class="contact-grid">
+                <div class="contact-info reveal">
+                    <h3 data-i18n="contact.getInTouch">Kom i kontakt</h3>
+                    <p data-i18n="contact.infoText">
+                        Jag söker alltid nya utmaningar och möjligheter att utvecklas. 
+                        Tveka inte att höra av dig – jag svarar så snart jag kan!
+                    </p>
+                    <div class="contact-links">
+                        <a href="tel:+46762234108" class="contact-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                            <div>
+                                <strong>+46 76 223 41 08</strong>
+                                <span data-i18n="contact.phone">Ring eller SMS</span>
+                            </div>
+                        </a>
+                        <a href="mailto:bosaknazar.se@gmail.com" class="contact-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            <div>
+                                <strong>bosaknazar.se@gmail.com</strong>
+                                <span data-i18n="contact.email">E-post</span>
+                            </div>
+                        </a>
+                        <a href="#" class="contact-link">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <div>
+                                <strong>Täby, 18351</strong>
+                                <span>Stockholm, Sverige</span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Documents -->
+                    <h3 style="margin-top: 2rem;" data-i18n="contact.docs">Dokument</h3>
+                    <div class="documents-grid">
+                        <a href="assets/documents/Nazar_Bosak_CV.pdf" class="document-card" target="_blank">
+                            <div class="document-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+                            </div>
+                            <div class="document-info">
+                                <h4 data-i18n="contact.cv">CV / Resumé</h4>
+                                <p data-i18n="contact.openPdf">Öppna PDF</p>
+                            </div>
+                        </a>
+                        <a href="assets/documents/Rekommendationsbrev.pdf" class="document-card" target="_blank">
+                            <div class="document-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                            </div>
+                            <div class="document-info">
+                                <h4 data-i18n="contact.rec">Rekommendationsbrev</h4>
+                                <p data-i18n="contact.openPdf">Öppna PDF</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Contact Form - novalidate disables browser validation -->
+                <form class="contact-form reveal" id="contactForm" novalidate>
+                    <input type="hidden" name="access_key" value="927cec8c-9f42-4af4-bf29-046126c75658">
+                    <div class="form-group">
+                        <label for="name" data-i18n="form.name">Namn</label>
+                        <input type="text" id="name" name="name" placeholder="Ditt namn">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" data-i18n="form.email">E-post</label>
+                        <input type="email" id="email" name="email" placeholder="din@email.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" data-i18n="form.subject">Ämne</label>
+                        <input type="text" id="subject" name="subject" placeholder="Vad gäller det?">
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-i18n="form.message">Meddelande</label>
+                        <textarea id="message" name="message" placeholder="Skriv ditt meddelande här..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary form-submit" id="submitBtn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                        <span data-i18n="form.submit">Skicka meddelande</span>
+                    </button>
+                    <p id="formStatus" style="text-align: center; margin-top: 1rem; font-size: 0.9rem; display: none;"></p>
+                    <p class="form-note" style="text-align: center; margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted);">
+                        <span data-i18n="form.emailDirect">Eller mejla direkt:</span> <a href="mailto:bosaknazar.se@gmail.com" style="color: var(--accent-light);">bosaknazar.se@gmail.com</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2025 Nazar Bosak. Täby, Sverige.</p>
+    </footer>
+
+    <!-- Внешний файл переводов -->
+    <script src="assets/js/translations.js"></script>
+
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Reveal on scroll
+        const reveals = document.querySelectorAll('.reveal');
+        const revealOnScroll = () => {
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    el.classList.add('active');
+                }
+            });
+        };
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll(); // Initial check
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Mobile menu toggle
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            const mobileToggle = document.querySelector('.mobile-toggle');
+            navLinks.classList.toggle('active');
+            mobileToggle.classList.toggle('active');
+        }
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                const navLinks = document.querySelector('.nav-links');
+                const mobileToggle = document.querySelector('.mobile-toggle');
+                navLinks.classList.remove('active');
+                mobileToggle.classList.remove('active');
+            });
+        });
+
+        // Slow down video playback to 0.5x
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.querySelector('.video-bg video');
+            if (video) {
+                video.playbackRate = 0.5;
+            }
+        });
+
+        // Unified form handler with validation + Web3Forms
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            // Clear previous errors
+            document.querySelectorAll('.error-message').forEach(el => el.remove());
+            document.querySelectorAll('.field-error').forEach(el => el.classList.remove('field-error'));
+            
+            const t = translations[currentLang];
+            const formT = t && t.form ? t.form : { error: 'Please fill in this field.', errorEmail: 'Please enter a valid email.' };
+            
+            // Validation
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const messageInput = document.getElementById('message');
+            
+            const requiredFields = [
+                { input: nameInput, errorText: formT.error },
+                { input: emailInput, errorText: formT.errorEmail, isEmail: true },
+                { input: messageInput, errorText: formT.error }
+            ];
+            
+            let hasError = false;
+            
+            for (const field of requiredFields) {
+                const value = field.input.value.trim();
+                const isInvalid = !value || (field.isEmail && !isValidEmail(value));
+                
+                if (isInvalid) {
+                    field.input.classList.add('field-error', 'error-shake');
+                    
+                    const errorMsg = document.createElement('span');
+                    errorMsg.className = 'error-message';
+                    errorMsg.textContent = field.isEmail && value ? formT.errorEmail : formT.error;
+                    field.input.parentNode.appendChild(errorMsg);
+                    
+                    if (!hasError) {
+                        field.input.focus();
+                        hasError = true;
+                    }
+                    
+                    setTimeout(() => field.input.classList.remove('error-shake'), 500);
+                }
+            }
+            
+            // Stop if validation failed
+            if (hasError) return;
+            
+            // Proceed with submission
+            const btn = document.getElementById('submitBtn');
+            const status = document.getElementById('formStatus');
+            const originalText = btn.innerHTML;
+            const sendingText = formT.sending || 'Sending...';
+            const sentText = formT.sent || 'Sent!';
+            const successText = formT.success || 'Thank you! Your message has been sent.';
+            
+            // Show loading state
+            btn.innerHTML = `<svg class="spinner" viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="3" fill="none" stroke-dasharray="30 60"/></svg> ${sendingText}`;
+            btn.disabled = true;
+            
+            const formData = {
+                access_key: '927cec8c-9f42-4af4-bf29-046126c75658',
+                name: nameInput.value,
+                email: emailInput.value,
+                subject: document.getElementById('subject').value || 'Kontakt från webbsidan',
+                message: messageInput.value,
+                from_name: 'Nazar Bosak Portfolio'
+            };
+
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    btn.innerHTML = `✓ ${sentText}`;
+                    btn.style.background = '#22c55e';
+                    status.style.display = 'block';
+                    status.style.color = '#22c55e';
+                    status.textContent = successText;
+                    this.reset();
+                    
+                    setTimeout(() => {
+                        btn.innerHTML = originalText;
+                        btn.style.background = '';
+                        btn.disabled = false;
+                        status.style.display = 'none';
+                    }, 4000);
+                } else {
+                    throw new Error('Form submission failed');
+                }
+            } catch (error) {
+                // Fallback to mailto
+                const body = `Hej Nazar!\n\n${messageInput.value}\n\n---\nFrån: ${nameInput.value}\nE-post: ${emailInput.value}`;
+                const mailtoLink = `mailto:bosaknazar.se@gmail.com?subject=${encodeURIComponent(document.getElementById('subject').value || 'Kontakt')}&body=${encodeURIComponent(body)}`;
+                
+                window.location.href = mailtoLink;
+                
+                btn.innerHTML = '📧 Opening email...';
+                btn.style.background = '#f59e0b';
+                
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.style.background = '';
+                    btn.disabled = false;
+                }, 3000);
+            }
+        });
+        
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        // Add spinner animation
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes spin { to { transform: rotate(360deg); } }
+            .spinner { animation: spin 1s linear infinite; }
+            .error-shake { animation: shake 0.5s ease; }
+            @keyframes shake {
+                0%, 100% { transform: translateX(0); }
+                20%, 60% { transform: translateX(-5px); }
+                40%, 80% { transform: translateX(5px); }
+            }
+            .field-error {
+                border-color: #ef4444 !important;
+                box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.2) !important;
+            }
+            .error-message {
+                color: #ef4444;
+                font-size: 0.8rem;
+                margin-top: 0.5rem;
+                display: block;
+            }
+            @keyframes slideUp {
+                from { opacity: 0; transform: translateX(-50%) translateY(20px); }
+                to { opacity: 1; transform: translateX(-50%) translateY(0); }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // ===== TRANSLATIONS =====
+        // Теперь используем внешний файл translations.js
+        // (объект translations уже загружен из translations.js)
+
+        let currentLang = 'sv';
+
+        // Safe translation function using data-i18n attributes
+        function translatePage(lang) {
+            currentLang = lang;
+            const t = translations[lang];
+            if (!t) return;
+
+            // Translate all elements with data-i18n attribute
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                const keys = key.split('.');
+                let value = t;
+                
+                for (const k of keys) {
+                    if (value && value[k]) {
+                        value = value[k];
+                    } else {
+                        return; // Key not found, skip
+                    }
+                }
+                
+                if (typeof value === 'string') {
+                    el.textContent = value;
+                }
+            });
+
+            // Update form placeholders
+            const nameInput = document.getElementById('name');
+            const emailInput = document.getElementById('email');
+            const subjectInput = document.getElementById('subject');
+            const messageInput = document.getElementById('message');
+            
+            if (nameInput && t.form) nameInput.placeholder = t.form.namePh;
+            if (emailInput && t.form) emailInput.placeholder = t.form.emailPh;
+            if (subjectInput && t.form) subjectInput.placeholder = t.form.subjectPh;
+            if (messageInput && t.form) messageInput.placeholder = t.form.messagePh;
+
+            // Update labels
+            const nameLabel = document.querySelector('label[for="name"]');
+            const emailLabel = document.querySelector('label[for="email"]');
+            const subjectLabel = document.querySelector('label[for="subject"]');
+            const messageLabel = document.querySelector('label[for="message"]');
+            
+            if (nameLabel && t.form) nameLabel.textContent = t.form.name;
+            if (emailLabel && t.form) emailLabel.textContent = t.form.email;
+            if (subjectLabel && t.form) subjectLabel.textContent = t.form.subject;
+            if (messageLabel && t.form) messageLabel.textContent = t.form.message;
+            
+            // Обновляем ошибки формы если они уже отображаются
+            updateFormErrors();
+        }
+
+        // Функция для обновления ошибок формы при смене языка
+        function updateFormErrors() {
+            const t = translations[currentLang];
+            if (!t || !t.form) return;
+            
+            document.querySelectorAll('.error-message').forEach(el => {
+                const input = el.parentNode.querySelector('input, textarea');
+                if (input) {
+                    if (input.id === 'email') {
+                        el.textContent = input.value.trim() && !isValidEmail(input.value.trim()) 
+                            ? t.form.errorEmail 
+                            : t.form.error;
+                    } else {
+                        el.textContent = t.form.error;
+                    }
+                }
+            });
+        }
+
+        // Language switcher toggle
+        function toggleLangDropdown(e) {
+            if (e) e.stopPropagation();
+            document.getElementById('langDropdown').classList.toggle('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.lang-switcher')) {
+                document.getElementById('langDropdown').classList.remove('show');
+            }
+        });
+
+        // Language selection
+        document.querySelectorAll('.lang-option').forEach(option => {
+            option.addEventListener('click', function() {
+                const lang = this.dataset.lang;
+                const code = this.dataset.code;
+                const flag = this.querySelector('.flag').textContent;
+                
+                document.getElementById('currentFlag').textContent = flag;
+                document.getElementById('currentLang').textContent = code;
+                
+                document.querySelectorAll('.lang-option').forEach(opt => opt.classList.remove('active'));
+                this.classList.add('active');
+                
+                document.getElementById('langDropdown').classList.remove('show');
+                
+                // Translate the page
+                translatePage(lang);
+                
+                // Show notification
+                showLangNotification(this.querySelector('.lang-name').textContent);
+            });
+        });
+
+        function showLangNotification(langName) {
+            const notification = document.createElement('div');
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 2rem;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #1a1a24;
+                border: 1px solid #6366f1;
+                padding: 1rem 2rem;
+                border-radius: 12px;
+                color: #f8fafc;
+                z-index: 10000;
+                animation: slideUp 0.3s ease;
+            `;
+            notification.textContent = `✓ ${langName}`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.opacity = '0';
+                notification.style.transition = 'opacity 0.3s';
+                setTimeout(() => notification.remove(), 300);
+            }, 2000);
+        }
+
+        // Clear error on input
+        document.querySelectorAll('#contactForm input, #contactForm textarea').forEach(input => {
+            input.addEventListener('input', function() {
+                this.classList.remove('field-error');
+                const errorMsg = this.parentNode.querySelector('.error-message');
+                if (errorMsg) errorMsg.remove();
+            });
+        });
+
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+        
+        // Check for saved theme or use system preference
+        function getTheme() {
+            const saved = localStorage.getItem('theme');
+            if (saved) return saved;
+            return prefersDark.matches ? 'dark' : 'light';
+        }
+        
+        function setTheme(theme) {
+            document.documentElement.setAttribute('data-theme', theme);
+            localStorage.setItem('theme', theme);
+        }
+        
+        // Initialize theme
+        setTheme(getTheme());
+        
+        themeToggle.addEventListener('click', () => {
+            const current = document.documentElement.getAttribute('data-theme') || 'dark';
+            const newTheme = current === 'dark' ? 'light' : 'dark';
+            setTheme(newTheme);
+        });
+
+        // Listen for system theme changes
+        prefersDark.addEventListener('change', (e) => {
+            if (!localStorage.getItem('theme')) {
+                setTheme(e.matches ? 'dark' : 'light');
+            }
+        });
+    </script>
+</body>
+</html>
