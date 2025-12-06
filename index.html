@@ -193,20 +193,11 @@
             overflow-y: auto;
         }
 
-        /* Show when .show class is added (click toggle) - takes priority */
+        /* Show when .show class is added (click toggle) */
         .lang-dropdown.show {
             opacity: 1 !important;
             visibility: visible !important;
             transform: translateY(0) !important;
-        }
-
-        /* Desktop only: show on hover */
-        @media (hover: hover) and (pointer: fine) {
-            .lang-switcher:hover .lang-dropdown {
-                opacity: 1;
-                visibility: visible;
-                transform: translateY(0);
-            }
         }
 
         .lang-option {
@@ -2589,8 +2580,10 @@
         document.addEventListener('click', function(e) {
             const dropdown = document.getElementById('langDropdown');
             const switcher = document.querySelector('.lang-switcher');
+            const langBtn = document.querySelector('.lang-btn');
             
             // Если клик был вне переключателя языков - закрыть
+            // Но не закрывать, если клик был на кнопку (она сама toggle)
             if (switcher && !switcher.contains(e.target)) {
                 dropdown.classList.remove('show');
             }
