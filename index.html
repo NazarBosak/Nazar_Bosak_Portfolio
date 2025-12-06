@@ -268,7 +268,6 @@
             height: auto;
             transform: translate(-50%, -50%);
             object-fit: cover;
-            object-position: center;
             opacity: 0.45;
             filter: brightness(0.55) saturate(1.3);
         }
@@ -2397,7 +2396,7 @@
             });
         });
 
-        // Slow down video playback to 0.5x and scale video properly
+        // Slow down video playback to 0.5x and scale 720p to match 4K appearance
         document.addEventListener('DOMContentLoaded', function() {
             const video = document.querySelector('.video-bg video');
             if (video) {
@@ -2409,13 +2408,13 @@
                     const videoHeight = video.videoHeight;
                     
                     // Scale 720p video to match 4K visual appearance
-                    // The scale compensates for the resolution difference
+                    // 4K is 3840x2160, 720p is 1280x720
+                    // Scale factor to make 720p appear like 4K in terms of visual coverage
                     if (videoWidth === 1280 && videoHeight === 720) {
-                        // Scale factor to make 720p appear like 4K in terms of visual coverage
-                        // This ensures the video doesn't look "further away"
-                        video.style.transform = 'translate(-50%, -50%) scale(1.2)';
-                    } else {
-                        // For 4K (3840x2160) or other resolutions, use normal transform
+                        // Apply scale to make 720p look like 4K (scale factor ~1.3-1.5)
+                        video.style.transform = 'translate(-50%, -50%) scale(1.4)';
+                    } else if (videoWidth === 3840 && videoHeight === 2160) {
+                        // Keep 4K at normal scale
                         video.style.transform = 'translate(-50%, -50%)';
                     }
                 });
