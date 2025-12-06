@@ -193,11 +193,33 @@
             overflow-y: auto;
         }
 
-        .lang-switcher:hover .lang-dropdown,
+        /* Desktop: show on hover */
+        .lang-switcher:hover .lang-dropdown {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* Show when .show class is added (for click toggle) */
         .lang-dropdown.show {
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
+        }
+
+        /* Mobile: disable hover, use only click */
+        @media (max-width: 768px) {
+            .lang-switcher:hover .lang-dropdown {
+                opacity: 0;
+                visibility: hidden;
+                transform: translateY(-10px);
+            }
+            
+            .lang-dropdown.show {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
         }
 
         .lang-option {
@@ -401,6 +423,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            text-decoration: none;
             position: relative;
             display: flex;
             align-items: center;
