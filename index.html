@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no, address=no, email=no">
     <title>Nazar Bosak | Portfolio</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%236366f1'/%3E%3Cstop offset='50%25' stop-color='%238b5cf6'/%3E%3Cstop offset='100%25' stop-color='%23d946ef'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Ctext x='50' y='68' font-family='Arial,sans-serif' font-size='42' font-weight='bold' fill='white' text-anchor='middle'%3ENB%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1238,6 +1239,18 @@
             flex-shrink: 0;
         }
 
+        .modal-contact-item a {
+            color: var(--accent-light);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .modal-contact-item a:hover {
+            text-decoration: underline;
+            color: var(--accent);
+        }
+
         /* Availability Section */
         #availability {
             background: var(--bg-secondary);
@@ -1852,6 +1865,43 @@
                 padding: 0 1rem !important;
                 text-align: center !important;
             }
+
+            /* Remove underline from modal content on mobile */
+            .modal-content h2,
+            .modal-content h3,
+            .modal-content p,
+            .modal-contact-item span {
+                text-decoration: none !important;
+                border-bottom: none !important;
+                -webkit-text-decoration: none !important;
+            }
+
+            /* Prevent auto-linking on mobile for addresses and phone numbers */
+            .modal-content p,
+            .modal-contact-item span {
+                -webkit-tap-highlight-color: transparent;
+                -webkit-touch-callout: none;
+            }
+
+            /* Keep phone links clickable on mobile */
+            .modal-contact-item a {
+                text-decoration: none !important;
+                -webkit-tap-highlight-color: rgba(99, 102, 241, 0.2);
+            }
+
+            .modal-contact-item a:active {
+                opacity: 0.8;
+            }
+
+            /* Remove underline from language items on mobile */
+            .language-item,
+            .language-name,
+            .language-level {
+                text-decoration: none !important;
+                border-bottom: none !important;
+                -webkit-text-decoration: none !important;
+                -webkit-tap-highlight-color: transparent !important;
+            }
         }
 
         @media (max-width: 480px) {
@@ -1936,6 +1986,36 @@
                 padding: 0 0.5rem !important;
                 font-size: 0.8rem !important;
                 text-align: center !important;
+            }
+
+            /* Remove underline from modal content on small mobile */
+            .modal-content h2,
+            .modal-content h3,
+            .modal-content p,
+            .modal-contact-item span {
+                text-decoration: none !important;
+                border-bottom: none !important;
+                -webkit-text-decoration: none !important;
+            }
+
+            /* Keep phone links clickable on small mobile */
+            .modal-contact-item a {
+                text-decoration: none !important;
+                -webkit-tap-highlight-color: rgba(99, 102, 241, 0.2);
+            }
+
+            .modal-contact-item a:active {
+                opacity: 0.8;
+            }
+
+            /* Remove underline from language items on small mobile */
+            .language-item,
+            .language-name,
+            .language-level {
+                text-decoration: none !important;
+                border-bottom: none !important;
+                -webkit-text-decoration: none !important;
+                -webkit-tap-highlight-color: transparent !important;
             }
         }
     </style>
@@ -3013,6 +3093,7 @@
                 address: "Lennart Neckmans Väg 22, 184 30 Åkersberga, Sverige",
                 mapAddress: "Lennart Neckmans Väg 22, 184 30 Åkersberga, Sverige",
                 contact: "Tel: 08-540 81 721",
+                phone: "+46854081721",
                 website: "https://www.osteraker.se/osterakersgymnasium"
             },
             soraskolan: {
@@ -3020,6 +3101,7 @@
                 address: "Luffarbacken 82, 184 39 Åkersberga, Sverige",
                 mapAddress: "Luffarbacken 82, 184 39 Åkersberga, Sverige",
                 contact: "Tel: 08-540 81 770",
+                phone: "+46854081770",
                 website: "https://www.osteraker.se/subsitegrundskolor/soraskolan.4.367d658917909e8fc2badaa.html"
             },
             skola6: {
@@ -3027,6 +3109,7 @@
                 address: "Robocha, 64, Dnipro, Dnipropetrovska oblast, Ukraina, 49000",
                 mapAddress: "Robocha Street 64, Dnipro, Dnipropetrovsk Oblast, Ukraine, 49000",
                 contact: "Tel: +380 56 242 36 28",
+                phone: "+380562423628",
                 website: "https://shkola6.dp.ua/"
             }
         };
@@ -3068,7 +3151,11 @@
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                 <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
                             </svg>
-                            <span>${institution.contact}</span>
+                            ${institution.phone ? `
+                                <a href="tel:${institution.phone}" style="color: var(--accent-light); text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.textDecoration='underline'" onmouseout="this.style.textDecoration='none'">${institution.contact}</a>
+                            ` : `
+                                <span>${institution.contact}</span>
+                            `}
                         </div>
                     </div>
                 ` : ''}
@@ -3244,6 +3331,53 @@
             .education-card,
             .language-item {
                 pointer-events: auto;
+            }
+            
+            /* Remove underline from language items - prevent auto-linking */
+            .language-item,
+            .language-name,
+            .language-level {
+                text-decoration: none !important;
+                border-bottom: none !important;
+                -webkit-text-decoration: none !important;
+            }
+            
+            /* Remove underline from modal content on mobile - prevent auto-linking */
+            @media (max-width: 768px) {
+                .modal-content h2,
+                .modal-content h3,
+                .modal-content p,
+                .modal-contact-item span,
+                .modal-contact-item strong {
+                    text-decoration: none !important;
+                    border-bottom: none !important;
+                    -webkit-text-decoration: none !important;
+                    -webkit-tap-highlight-color: transparent !important;
+                }
+                
+                /* Prevent browser from auto-detecting addresses and phone numbers as links */
+                .modal-content p {
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+                
+                /* Keep phone links clickable on mobile */
+                .modal-contact-item a {
+                    text-decoration: none !important;
+                    -webkit-tap-highlight-color: rgba(99, 102, 241, 0.2) !important;
+                }
+                
+                /* Remove underline from language items on mobile */
+                .language-item,
+                .language-name,
+                .language-level {
+                    text-decoration: none !important;
+                    border-bottom: none !important;
+                    -webkit-text-decoration: none !important;
+                    -webkit-tap-highlight-color: transparent !important;
+                }
             }
         `;
         document.head.appendChild(preventAutoLinks);
