@@ -1,0 +1,13 @@
+# robots.txt for bosaknazar.se
+# This file helps search engines properly index the site
+
+User-agent: *
+Allow: /
+
+# Sitemap (uncomment and update when you have a sitemap)
+# Sitemap: https://bosaknazar.se/sitemap.xml
+
+# Disallow admin or private areas if any
+# Disallow: /admin/
+# Disallow: /private/
+
