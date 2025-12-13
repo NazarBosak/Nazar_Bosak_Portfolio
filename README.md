@@ -146,6 +146,38 @@ All files in the project root and `assets/` folder must be uploaded:
 
 ---
 
+## 🔄 Cache Busting
+
+При обновлении файлов меняй версию в index.html:
+
+- `photo.webp?v=1` → `photo.webp?v=2`
+
+**Текущая версия:** v=1
+
+## ⚙️ HTTP-кеширование (для сервера)
+
+### Apache (.htaccess)
+
+```apache
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType video/webm "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+</IfModule>
+```
+
+### Nginx
+
+```nginx
+location /assets/ {
+    expires 1y;
+    add_header Cache-Control "public, immutable";
+}
+```
+
+---
+
 **Made with ❤️ in Stockholm, Sweden**
 
 
